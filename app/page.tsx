@@ -1,6 +1,5 @@
 'use client';
-
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   useAccount,
   useReadContract,
@@ -68,6 +67,15 @@ function ConnectWallet() {
   const { disconnect } = useDisconnect();
   const { isConnected, address } = useAccount();
   const [showList, setShowList] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
+
+  if (!mounted) return (
+    <button className="bg-blue-600 px-4 py-2 rounded-xl text-sm font-medium">
+      Connect Wallet
+    </button>
+  );
 
   if (isConnected) return (
     <button
