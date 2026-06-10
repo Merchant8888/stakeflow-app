@@ -250,7 +250,7 @@ export default function Home() {
               </p>
               <button
                 onClick={handleWithdraw}
-                disabled={isPending || isConfirming || !stakeData || stakeData[0] === 0n}
+                disabled={isPending || isConfirming || !stakeData || stakeData[0] === BigInt(0)}
                 className="w-full bg-green-600 hover:bg-green-500 disabled:bg-gray-700 py-3 rounded-xl font-medium transition"
               >
                 Withdraw All + Rewards
